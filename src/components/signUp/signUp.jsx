@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 
-import { auth, createUserProfileDocument } from "../../firebase/firebaseUtil.js";
-
+import {
+  auth,
+  createUserProfileDocument,
+} from "firebase/firebaseUtil.js";
 import FormInput from "components/form-input/formInput";
 import CustomButton from "components/customButton/customButton";
 import "./signUp.scss";
@@ -15,28 +17,30 @@ class signin extends Component {
   };
 
   handleSubmit = async (event) => {
-      event.preventDefault();
-      
-      const { displayName, email, password, confirmPassword } = this.state;
+    event.preventDefault();
 
-      if (password !== confirmPassword) {
-          alert("Passwords don't match");
-          return;
+    const { displayName, email, password, confirmPassword } = this.state;
 
-      }
-      try {
-          const { user } = await auth.createUserWithEmailAndPassword(email, password);
-          await createUserProfileDocument(user, { displayName })
-          
-          this.setState({
-            displayName: "",
-            email: "",
-            password: "",
-            confirmPassword: " ",
-          });
-      } catch (error) {
-          console.error(error)
-      }
+    if (password !== confirmPassword) {
+      alert("Passwords don't match");
+      return;
+    }
+    try {
+      const { user } = await auth.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+      await createUserProfileDocument(user, { displayName });
+
+      this.setState({
+        displayName: "",
+        email: "",
+        password: "",
+        confirmPassword: " ",
+      });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   handleChange = (event) => {
@@ -47,8 +51,8 @@ class signin extends Component {
     });
   };
 
-    render() {
-      const { displayName, email, password, confirmPassword} = this.state
+  render() {
+    const { displayName, email, password, confirmPassword } = this.state;
     return (
       <div className="sign-in">
         <h2>I do not have an account</h2>
