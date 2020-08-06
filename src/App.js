@@ -8,7 +8,7 @@ import HomePage from "pages/homepage/homepage";
 import ShopPage from "pages/shop/shop";
 import Header from "components/header/header";
 import UserAuth from "pages/userAuth/userAuth"
-import {setCurrentUser} from 'redux/user-reducer/userAction'
+import {setCurrentUser} from 'redux/user/userAction'
 import { auth, createUserProfileDocument } from "firebase/firebaseUtil";
 
 class App extends React.Component {

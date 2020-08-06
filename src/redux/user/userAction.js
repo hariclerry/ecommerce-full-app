@@ -1,4 +1,4 @@
-import { userActionTypes } from "redux/actions/index";
+import { userActionTypes } from "redux/actions";
 
 export const setCurrentUser = (user) => ({
   type: userActionTypes.SET_CURRENT_USER,
