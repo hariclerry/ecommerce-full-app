@@ -10,3 +10,7 @@ export const cartActionTypes = {
   CLEAR_ITEM_FROM_CART: "CLEAR_ITEM_FROM_CART",
   REMOVE_ITEM_FROM_CART: " REMOVE_ITEM_FROM_CART",
 };
+
+export const directoryActionTypes = {
+  FETCH_SECTIONS_DATA: "FETCH_SECTIONS_DATA",
+};
