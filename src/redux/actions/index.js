@@ -14,3 +14,8 @@ export const cartActionTypes = {
 export const directoryActionTypes = {
   FETCH_SECTIONS_DATA: "FETCH_SECTIONS_DATA",
 };
+
+export const shopActionTypes = {
+  UPDATE_COLLECTIONS: "UPDATE_COLLECTIONS",
+};
+
