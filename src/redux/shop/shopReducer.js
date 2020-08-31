@@ -1,4 +1,3 @@
-import shopData from "pages/shop/shop.data";
 import { shopActionTypes } from "redux/actions";
 
 const INITIAL_STATE = {
