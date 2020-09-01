@@ -1,7 +1,7 @@
 import { shopActionTypes } from "redux/actions";
 
 const INITIAL_STATE = {
-  collections: null
+  collections: null,
 };
 
 const shopReducer = (state = INITIAL_STATE, action) => {
