@@ -14,7 +14,6 @@ const shopReducer = (state = INITIAL_STATE, action) => {
         isFetching: true,
       };
     case shopActionTypes.FETCH_COLLECTIONS_SUCCESS:
-      console.log("payloaddddddd", action.payload)
       return {
         ...state,
         isFetching: false,
