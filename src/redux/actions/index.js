@@ -10,6 +10,9 @@ export const userActionTypes = {
   SIGN_OUT_START: "SIGN_OUT_START",
   SIGN_OUT_SUCCESS: "SIGN_OUT_SUCCESS",
   SIGN_OUT_FAILURE: "SIGN_OUT_FAILURE",
+  SIGN_UP_START: "SIGN_UP_START",
+  SIGN_UP_SUCCESS: "SIGN_UP_SUCCESS",
+  SIGN_UP_FAILURE: "SIGN_UP_FAILURE",
 };
 
 export const cartActionTypes = {
@@ -17,6 +20,7 @@ export const cartActionTypes = {
   ADD_CART_ITEM: "ADD_CART_ITEM",
   CLEAR_ITEM_FROM_CART: "CLEAR_ITEM_FROM_CART",
   REMOVE_ITEM_FROM_CART: " REMOVE_ITEM_FROM_CART",
+  CLEAR_CART: "CLEAR_CART",
 };
 
 export const directoryActionTypes = {
