@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, lazy, suspense, Suspense } from "react";
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
@@ -9,11 +9,16 @@ import {
   selectIsCollectionsLoaded,
 } from "redux/shop/shopSelector";
 import WithSpinner from "components/with-spinner/withSpinner";
-import CollectionsOverview from "components/collectionsOverview/collectionsOverView";
-import CollectionPage from "pages/collection/collection";
+
+const CollectionsOverview = lazy(() =>
+  import("components/collectionsOverview/collectionsOverView")
+);
+const CollectionPage = lazy(() => import("pages/collection/collection"));
+
 
 const CollectionsOverviewWithSpinner = WithSpinner(CollectionsOverview);
 const CollectionPageWithSpinner = WithSpinner(CollectionPage);
+
 class ShopPage extends Component {
 
   componentDidMount() {
@@ -25,6 +30,7 @@ class ShopPage extends Component {
     const { match, isFetching, isFetchingCollections } = this.props;
     return (
       <div className="shop-page">
+        <Suspense>
         <Route
           exact
           path={`${match.path}`}
@@ -40,7 +46,8 @@ class ShopPage extends Component {
               {...props}
             />
           )}
-        />
+          />
+          </Suspense>
       </div>
     );
   }
