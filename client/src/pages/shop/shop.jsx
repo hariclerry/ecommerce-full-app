@@ -1,4 +1,4 @@
-import React, { Component, lazy, suspense, Suspense } from "react";
+import React, { Component, lazy, Suspense } from "react";
 import { Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
