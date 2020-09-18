@@ -31,23 +31,27 @@ class ShopPage extends Component {
     return (
       <div className="shop-page">
         <Suspense>
-        <Route
-          exact
-          path={`${match.path}`}
-          render={(props) => (
-            <CollectionsOverviewWithSpinner isLoading={isFetching} {...props} />
-          )}
-        />
-        <Route
-          path={`${match.path}/:collectionId`}
-          render={(props) => (
-            <CollectionPageWithSpinner
-              isLoading={!isFetchingCollections}
-              {...props}
-            />
-          )}
+          <Route
+            exact
+            path={`${match.path}/`}
+            render={(props) => (
+              <CollectionsOverviewWithSpinner
+                isLoading={isFetching}
+                {...props}
+              />
+            )}
           />
-          </Suspense>
+          <Route
+            
+            path={`${match.path}/:collectionId`}
+            render={(props) => (
+              <CollectionPageWithSpinner
+                isLoading={!isFetchingCollections}
+                {...props}
+              />
+            )}
+          />
+        </Suspense>
       </div>
     );
   }

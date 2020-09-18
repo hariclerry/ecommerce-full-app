@@ -10,6 +10,8 @@ import ContactPage from "pages/contacts/contactPage"
 import { checkUserSession } from "redux/user/userAction";
 import { selectCurrentUser } from "redux/user/userSelector";
 import Spinner from "components/spinner/spinner";
+import LandingPage from "pages/landingpage/landingPage"
+import PrivateRoute from "pages/private-route/privateRoute"
 
 import { GlobalStyles } from "./globalStyles.js";
 
@@ -32,23 +34,39 @@ class App extends React.Component {
   }
 
   render() {
+    const { currentUser } = this.props;
     return (
       <Fragment>
         <GlobalStyles />
         <Header />
         <Switch>
+          <Route exact path="/" component={LandingPage} />
           <Route exact path="/contact" component={ContactPage} />
           <ErrorBoundary>
             <Suspense fallback={<Spinner />}>
-              <Route exact path="/" component={HomePage} />
-              <Route path="/shop" component={ShopPage} />
-              <Route exact path="/checkout" component={CheckOutPage} />
+              <PrivateRoute
+                exct
+                path="/home"
+                component={HomePage}
+                currentUser={currentUser}
+              />
+              <PrivateRoute
+                path="/shop"
+                component={ShopPage}
+                currentUser={currentUser}
+              />
+              <PrivateRoute
+                exact
+                path="/checkout"
+                component={CheckOutPage}
+                currentUser={currentUser}
+              />
               <Route
                 exact
                 path="/user"
                 render={() =>
                   this.props.currentUser ? (
-                    <Redirect to="/" />
+                    <Redirect to="/home" />
                   ) : (
                     <UserAuthPage />
                   )

@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import CustomButton from "components/customButton/customButton";
 import { addCartItem } from "redux/cart/cartAction";
@@ -22,8 +23,10 @@ const CollectionItem = ({ item, addCartItem }) => {
   );
 };
 
+
 const mapDispatchToProps = (dispatch) => ({
   addCartItem: (item) => dispatch(addCartItem(item)),
 });
+const ShowMatchPropsWithRouter = withRouter(CollectionItem);
 
-export default connect(null, mapDispatchToProps)(CollectionItem);
+export default connect(null, mapDispatchToProps)(ShowMatchPropsWithRouter);

@@ -25,13 +25,14 @@ const StripeCheckoutButton = ({ price }) => {
          );
        });
    };
-  return (
+  //ibb.co/fDkMWhj
+  https: return (
     <StripeCheckout
       label="PAY NOW"
       name="Clerry Clothing Ltd"
       billingAddress
       shippingAddress
-      image="https://svgshare.com/i/CUz.svg"
+      image="https://i.ibb.co/J3vnTfD/logo.png"
       description={`your total is $${price}`}
       amount={priceForStripe}
       panelLabel="Pay Now"
