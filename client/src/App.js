@@ -10,7 +10,7 @@ import ContactPage from "pages/contacts/contactPage"
 import { checkUserSession } from "redux/user/userAction";
 import { selectCurrentUser } from "redux/user/userSelector";
 import Spinner from "components/spinner/spinner";
-import LandingPage from "pages/landingpage/landingPage"
+// import LandingPage from "pages/landingpage/landingPage"
 import PrivateRoute from "pages/private-route/privateRoute"
 
 import { GlobalStyles } from "./globalStyles.js";

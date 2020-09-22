@@ -6,30 +6,29 @@ const StripeCheckoutButton = ({ price }) => {
   const priceForStripe = price * 100;
   const publishableKey =
     "pk_test_51HCWgoDXlzB9rNQrMUDKrrjkjiaYktY8vPugw1ZORD1qTStzy2VZUAM4ZSU2bNhIQcQdcQx6rSrzrUGJvq2yWvB000KF8ctgGC";
-   const onToken = (token) => {
-     axios({
-       url: "payment",
-       method: "post",
-       data: {
-         amount: priceForStripe,
-         token: token,
-       },
-     })
-       .then((response) => {
-         alert("succesful payment");
-       })
-       .catch((error) => {
-         console.log("Payment Error: ", error);
-         alert(
-           "There was an issue with your payment! Please make sure you use the provided credit card."
-         );
-       });
-   };
-  //ibb.co/fDkMWhj
-  https: return (
+  const onToken = (token) => {
+    axios({
+      url: "payment",
+      method: "post",
+      data: {
+        amount: priceForStripe,
+        token: token,
+      },
+    })
+      .then((response) => {
+        alert("succesful payment");
+      })
+      .catch((error) => {
+        console.log("Payment Error: ", error);
+        alert(
+          "There was an issue with your payment! Please make sure you use the provided credit card."
+        );
+      });
+  };
+  return (
     <StripeCheckout
       label="PAY NOW"
-      name="Clerry Clothing Ltd"
+      name="Clerry Clothing Store"
       billingAddress
       shippingAddress
       image="https://i.ibb.co/J3vnTfD/logo.png"
