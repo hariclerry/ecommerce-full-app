@@ -20,6 +20,7 @@ const HomePage = lazy(() => import("pages/homepage/homepage"));
 const ShopPage = lazy(() => import("pages/shop/shop"));
 const UserAuthPage = lazy(() => import("pages/userAuth/userAuth"));
 const CheckOutPage = lazy(() => import("pages/check-out/checkOut"));
+const LandingPage = lazy(() => import("pages/landingpage/landingPage"));
 class App extends React.Component {
   // unsubscribe method
   unsubscribeFromAuth = null;
@@ -40,10 +41,10 @@ class App extends React.Component {
         <GlobalStyles />
         <Header />
         <Switch>
-          <Route exact path="/" component={LandingPage} />
           <Route exact path="/contact" component={ContactPage} />
           <ErrorBoundary>
             <Suspense fallback={<Spinner />}>
+              <Route exact path="/" component={LandingPage} />
               <PrivateRoute
                 exct
                 path="/home"
