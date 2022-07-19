@@ -2,6 +2,8 @@ import React, { Fragment, lazy, Suspense } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
+import 'react-notifications/lib/notifications.css';
+import { NotificationContainer } from "react-notifications";
 
 import Header from "components/header/header";
 import ErrorBoundary from "components/error-boundary/errorBoundary"
@@ -76,6 +78,7 @@ class App extends React.Component {
             </Suspense>
           </ErrorBoundary>
         </Switch>
+        <NotificationContainer />
       </Fragment>
     );
   }

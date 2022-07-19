@@ -1,4 +1,5 @@
 import { takeLatest, put, all, call } from "redux-saga/effects";
+import { NotificationManager } from 'react-notifications';
 
 import { userActionTypes } from "redux/actions";
 
@@ -37,6 +38,7 @@ export function* signInWithGoogle() {
     const { user } = yield auth.signInWithPopup(googleProvider);
     yield getSnapshotFromUserAuth(user);
   } catch (error) {
+    console.log("error----------", error.message)
     yield put(signInFailure(error));
   }
 }
@@ -46,6 +48,7 @@ export function* signInWithEmail({ payload: { email, password } }) {
     const { user } = yield auth.signInWithEmailAndPassword(email, password);
     yield getSnapshotFromUserAuth(user);
   } catch (error) {
+    NotificationManager.error(error.message);
     yield put(signInFailure(error));
   }
 }
