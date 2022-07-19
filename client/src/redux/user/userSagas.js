@@ -72,6 +72,7 @@ export function* signUpUser({ payload: { email, password, displayName } }) {
     const { user } = yield auth.createUserWithEmailAndPassword(email, password);
     yield put(signUpSuccess({ user, additionalData: { displayName } }));
   } catch (error) {
+    NotificationManager.error(error.message);
     yield put(signUpFailure(error));
   }
 }
