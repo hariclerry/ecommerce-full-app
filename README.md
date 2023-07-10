@@ -1,4 +1,4 @@
-# Book Management API
+# Clerry Clothing App
 
 Clerry Clothing App is an E-commerce site for purchasing clothes online and making payments using Stripe Payment system(test).
 
